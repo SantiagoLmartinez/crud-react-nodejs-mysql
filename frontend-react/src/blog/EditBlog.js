@@ -1,6 +1,8 @@
 import axios from "axios";
 import {useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import swal from 'sweetalert'
+
 
 const URI = 'http://localhost:7000/blogs/'
 
@@ -17,6 +19,7 @@ const update = async(e) =>{
         title: title,
         content: content
     })
+    alertEdited()
     navigate('/')
 }
 useEffect(()=>{     
@@ -30,6 +33,16 @@ useEffect(()=>{
         setContent(res.data.content)
         //le asignamos un nuevo valor a content
     } 
+
+//alerta para confirmar edicion
+const alertEdited =() =>{
+    swal({
+        title:'Blog editado',
+        icon:'success',
+        timer:'2000'
+    })
+}
+
     return (
         //siempre retorna un div con el codigo html dentro
         <div className="container">

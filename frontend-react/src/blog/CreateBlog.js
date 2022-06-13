@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 //ENDPOINT CON BACKEND
 const URI = 'http://localhost:7000/blogs/'
@@ -21,8 +22,17 @@ const CompCreateBlog = () => {
         //nos conectamos con db para procesar datos
         await axios.post(URI, { title: title, content: content })
         // una vez procesados nos redireccionamos al root
+        alertCreated()
         navigate('/')
     }
+    //alerta para confirmar edicion
+const alertCreated =() =>{
+    swal({
+        title:'Blog Creado',
+        icon:'success',
+        timer:'2000'
+    })
+}
     return (
         //siempre retorna un div con el codigo html dentro
         <div className="container">
