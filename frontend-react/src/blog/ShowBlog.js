@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom'
 const URI = 'http://localhost:7000/blogs/'
 
 const CompShowBlogs = () => {
-    const [blogs, setBlog] = useState([])
-    useEffect(() => {
-        getBlogs()
-    }, [])
+        const [blogs, setBlog] = useState([])
+        useEffect(() => {
+            getBlogs()
+        }, [])
 
 
     //prodedimiento para mostrar todos los blogs
